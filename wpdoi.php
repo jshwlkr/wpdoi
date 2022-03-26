@@ -7,7 +7,7 @@
  * @version           1.0.0
  * @author            Joshua Walker
  * @copyright         2019 Joshua Walker
- * @license           GPL-2.0-or-later
+ * @license           GPL-3.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       WP-DOI
@@ -20,13 +20,19 @@
  * Author URI:        https://example.com
  * Text Domain:       wpdoi
  * License:           GPL v3 or later
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Update URI:        https://github.com/jshwlkr/wpdoi
  * GitHub Plugin URI: jshwlkr/wpdoi
  * Primary Branch:    main
+ *
+ **
+ * Resources:
+ * https://github.com/WordPress/gutenberg-examples/tree/trunk/plugin-sidebar/
+ *
  */
 
 // TODO: Check if not gutenberg
+// TODO: https://developer.wordpress.org/reference/functions/register_uninstall_hook/
 
 if ( ! defined( 'ABSPATH' ) ) {
     wp_die();
@@ -68,57 +74,54 @@ function wpdoi_assets() {
 		)
 	);
 
+	wp_register_style(
+		'wpdoi-sidebar-css',
+		plugins_url( 'wpdoi-sidebar.css', __FILE__ )
+	);
+
 }
 
 add_action( 'init', 'wpdoi_assets');
 
 function wpdoi_enqueue() {
-	wp_enqueue_script( 'plugin-sidebar-js' );
+	wp_enqueue_script( 'wpdoi-sidebar-js' );
+	wp_enqueue_style( 'wpdoi-sidebar-css' );
+
 }
 
 add_action( 'enqueue_block_editor_assets', 'wpdoi_enqueue' );
 
 
-/**
- * https://github.com/WordPress/gutenberg-examples/tree/trunk/plugin-sidebar
- */
+function wpdoi_meta() {
 
+	$ID = get_the_ID();
 
-// TODO: https://developer.wordpress.org/reference/functions/register_uninstall_hook/
+	//TODO: filter admin?
+	if ( metadata_exists( 'post', $ID, 'wpdoi_doi' ) ) {
 
+        add_filter( 'language_attributes', 'wpdoi_xml_namespaces' );
+		add_action( 'wp_head', 'wpdoi_dublin_core', 0 );
 
-	/**
-	 * Check if Gutenberg is active.
-	 * Must be used not earlier than plugins_loaded action fired.
-	 * https://gist.github.com/mihdan/8ba1a70d8598460421177c7d31202908
-	 *
-	 * @return bool
-	 */
-	private function is_gutenberg_active() {
-		$gutenberg    = false;
-		$block_editor = false;
+    }
+}
 
-		if ( has_filter( 'replace_editor', 'gutenberg_init' ) ) {
-			// Gutenberg is installed and activated.
-			$gutenberg = true;
-		}
+add_action('wp','wpdoi_meta');
 
-		if ( version_compare( $GLOBALS['wp_version'], '5.0-beta', '>' ) ) {
-			// Block editor.
-			$block_editor = true;
-		}
+function wpdoi_xml_namespaces( $output ) {
 
-		if ( ! $gutenberg && ! $block_editor ) {
-			return false;
-		}
+	//TODO: check output first
+    return $output . ' xmlns:dc="http://purl.org/dc/terms/" xmlns:doi="http://dx.doi.org/" ';
 
-		include_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
 
-		if ( ! is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
-			return true;
-		}
+function wpdoi_dublin_core() {
 
-		$use_block_editor = ( get_option( 'classic-editor-replace' ) === 'no-replace' );
-
-		return $use_block_editor;
-	}
+	$ID = get_the_ID();
+	//TODO: filter output
+	$DOI = get_post_meta( $ID, 'wpdoi_doi', true );
+	//TODO: check meta first
+	//TODO: sprintf?
+	echo '<meta name="dc.identifier" content="doi:' . $DOI . '">';
+	echo '<meta name="DOI" content="' . $DOI . '">';
+	echo '<meta name="citation_doi" content="' . $DOI . '">';
+}

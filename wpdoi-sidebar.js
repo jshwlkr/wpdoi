@@ -16,7 +16,7 @@
 		var editPost = useDispatch( 'core/editor' ).editPost;
 
 		return el( TextControl, {
-			label: 'Meta Field',
+			label: 'DOI',
 			value: metaFieldValue,
 			onChange: function ( content ) {
 				editPost( {
@@ -32,8 +32,8 @@
 				PluginSidebar,
 				{
 					name: 'wp-doi-sidebar',
-					icon: 'admin-post',
-					title: 'DOI',
+					icon: 'book',
+					title: 'WP-DOI',
 				},
 				el(
 					'div',
