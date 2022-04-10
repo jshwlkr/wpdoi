@@ -23,6 +23,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Update URI:        https://github.com/jshwlkr/wpdoi
  * GitHub Plugin URI: jshwlkr/wpdoi
+ * Release Asset: 	  true
  * Primary Branch:    main
  *
  **
