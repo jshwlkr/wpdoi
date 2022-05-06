@@ -11,7 +11,7 @@
   },
   "keywords": [
     "wordpress",
-		"wordpress-plugin",
+    "wordpress-plugin",
     "doi"
   ],
   "author": "Joshua Walker",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/jshwlkr/wpdoi#readme",
   "devDependencies": {
     "@google/semantic-release-replace-plugin": "^1.1.0",
+    "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.4",
     "@wordpress/scripts": "^22.4.0",
@@ -37,7 +38,9 @@
         {
           "replacements": [
             {
-              "files": ["wpdoi.php"],
+              "files": [
+                "wpdoi.php"
+              ],
               "from": "@version: .*",
               "to": "@version: ${nextRelease.version}",
               "results": [
@@ -51,7 +54,9 @@
               "countMatches": true
             },
             {
-              "files": ["wpdoi.php"],
+              "files": [
+                "wpdoi.php"
+              ],
               "from": "* Version: .*",
               "to": "* Version: ${nextRelease.version}",
               "results": [
@@ -65,7 +70,9 @@
               "countMatches": true
             },
             {
-              "files": ["package.json"],
+              "files": [
+                "package.json"
+              ],
               "from": "\"version\": \".*\",",
               "to": "\"version\": \"${nextRelease.version}\"",
               "results": [
@@ -84,7 +91,10 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["wpdoi.php", "package.json"],
+          "assets": [
+            "wpdoi.php",
+            "package.json"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
       ],
@@ -95,13 +105,13 @@
         }
       ],
       [
-      "@semantic-release/github",
-			{
-				"assets": {
-					"path":"wpdoi.zip",
-					"name": "wpdoi-${nextRelease.version}"
-				}
-			}
+        "@semantic-release/github",
+        {
+          "assets": {
+            "path": "wpdoi.zip",
+            "name": "wpdoi-${nextRelease.version}"
+          }
+        }
       ]
     ]
   }
