@@ -41,8 +41,8 @@
               "files": [
                 "wpdoi.php"
               ],
-              "from": "@version: .*",
-              "to": "@version: ${nextRelease.version}",
+              "from": "\\*@version: .*",
+              "to": "\\*@version: ${nextRelease.version}",
               "results": [
                 {
                   "file": "wpdoi.php",
@@ -57,8 +57,8 @@
               "files": [
                 "wpdoi.php"
               ],
-              "from": "* Version: .*",
-              "to": "* Version: ${nextRelease.version}",
+              "from": "\\* Version: .*",
+              "to": "\\* Version: ${nextRelease.version}",
               "results": [
                 {
                   "file": "wpdoi.php",
