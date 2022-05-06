@@ -1,10 +1,13 @@
 ( function ( wp ) {
 	var registerPlugin = wp.plugins.registerPlugin;
-	var PluginSidebar = wp.editPost.PluginSidebar;
+	var PluginDocumentSettingPanel = wp.editPost.PluginDocumentSettingPanel;
 	var el = wp.element.createElement;
 	var TextControl = wp.components.TextControl;
 	var useSelect = wp.data.useSelect;
 	var useDispatch = wp.data.useDispatch;
+
+
+//https://rudrastyh.com/gutenberg/add-custom-panels-to-post-settings-sidebar.html
 
 	var MetaBlockField = function ( props ) {
 		var metaFieldValue = useSelect( function ( select ) {
@@ -26,13 +29,12 @@
 		} );
 	};
 
-	registerPlugin( 'wp-doi-sidebar', {
+	registerPlugin( 'wp-doi-panel', {
 		render: function () {
 			return el(
-				PluginSidebar,
+				PluginDocumentSettingPanel,
 				{
-					name: 'wp-doi-sidebar',
-					icon: 'book',
+					name: 'wp-doi-panel',
 					title: 'WP-DOI',
 				},
 				el(

@@ -1,26 +1,9 @@
 {
-  "devDependencies": {
-    "@wordpress/scripts": "^22.3.0"
-  },
   "name": "wpdoi",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-		"build": "wp-scripts build",
-		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses",
-		"format": "wp-scripts format",
-		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js",
-		"lint:md:docs": "wp-scripts lint-md-docs",
-		"lint:md:js": "wp-scripts lint-md-js",
-		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"packages-update": "wp-scripts packages-update",
-		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start",
-		"test:e2e": "wp-scripts test-e2e",
-		"test:unit": "wp-scripts test-unit-js"
+    "zip": "wp-scripts plugin-zip"
   },
   "repository": {
     "type": "git",
@@ -28,6 +11,7 @@
   },
   "keywords": [
     "wordpress",
+		"wordpress-plugin",
     "doi"
   ],
   "author": "Joshua Walker",
@@ -35,5 +19,90 @@
   "bugs": {
     "url": "https://github.com/jshwlkr/wpdoi/issues"
   },
-  "homepage": "https://github.com/jshwlkr/wpdoi#readme"
+  "homepage": "https://github.com/jshwlkr/wpdoi#readme",
+  "devDependencies": {
+    "@google/semantic-release-replace-plugin": "^1.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.4",
+    "@wordpress/scripts": "^22.4.0",
+    "semantic-release": "^19.0.2"
+  },
+  "release": {
+    "branches": "main",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@google/semantic-release-replace-plugin",
+        {
+          "replacements": [
+            {
+              "files": ["wpdoi.php"],
+              "from": "@version: .*",
+              "to": "@version: ${nextRelease.version}",
+              "results": [
+                {
+                  "file": "wpdoi.php",
+                  "hasChanged": true,
+                  "numMatches": 1,
+                  "numReplacements": 1
+                }
+              ],
+              "countMatches": true
+            },
+            {
+              "files": ["wpdoi.php"],
+              "from": "* Version: .*",
+              "to": "* Version: ${nextRelease.version}",
+              "results": [
+                {
+                  "file": "wpdoi.php",
+                  "hasChanged": true,
+                  "numMatches": 1,
+                  "numReplacements": 1
+                }
+              ],
+              "countMatches": true
+            },
+            {
+              "files": ["package.json"],
+              "from": "\"version\": \".*\",",
+              "to": "\"version\": \"${nextRelease.version}\"",
+              "results": [
+                {
+                  "file": "wpdoi.php",
+                  "hasChanged": true,
+                  "numMatches": 1,
+                  "numReplacements": 1
+                }
+              ],
+              "countMatches": true
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": ["wpdoi.php", "package.json"],
+          "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "wp-scripts plugin-zip"
+        }
+      ],
+      [
+      "@semantic-release/github",
+			{
+				"assets": {
+					"path":"wpdoi.zip",
+					"name": "wpdoi-${nextRelease.version}"
+				}
+			}
+      ]
+    ]
+  }
 }
