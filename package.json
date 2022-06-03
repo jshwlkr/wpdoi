@@ -77,7 +77,7 @@
               "to": "\"version\": \"${nextRelease.version}\"",
               "results": [
                 {
-                  "file": "wpdoi.php",
+                  "file": "package.json",
                   "hasChanged": true,
                   "numMatches": 1,
                   "numReplacements": 1
