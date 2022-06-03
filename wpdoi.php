@@ -34,6 +34,7 @@
 
 // TODO: Check if not gutenberg
 // TODO: https://developer.wordpress.org/reference/functions/register_uninstall_hook/
+// TODO: ability to add to more than just posts?
 
 if ( ! defined( 'ABSPATH' ) ) {
     wp_die();
