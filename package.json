@@ -41,24 +41,8 @@
               "files": [
                 "wpdoi.php"
               ],
-              "from": "\\* @version: .*",
-              "to": "\\* @version: ${nextRelease.version}",
-              "results": [
-                {
-                  "file": "wpdoi.php",
-                  "hasChanged": true,
-                  "numMatches": 1,
-                  "numReplacements": 1
-                }
-              ],
-              "countMatches": true
-            },
-            {
-              "files": [
-                "wpdoi.php"
-              ],
-              "from": "\\* Version: .*",
-              "to": "\\* Version: ${nextRelease.version}",
+              "from": "Version: .*",
+              "to": "Version: ${nextRelease.version}",
               "results": [
                 {
                   "file": "wpdoi.php",
