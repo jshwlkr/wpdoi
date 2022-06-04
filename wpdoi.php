@@ -10,10 +10,10 @@
  * @license           GPL-3.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:       WP-DOI
- * Plugin URI:        https://github.com/jshwlkr/wpdoi
- * Description:       Add DOI metadata to a WordPress post.
- * Version:           1.0.0
+ * plugin Name:       WP-DOI
+ * plugin URI:        https://github.com/jshwlkr/wpdoi
+ * description:       Add DOI metadata to a WordPress post.
+ * version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Joshua Walker
