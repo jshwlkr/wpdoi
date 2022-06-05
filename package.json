@@ -52,7 +52,23 @@
                 }
               ],
               "countMatches": true
-            }
+            },
+						{
+							"files": [
+								"package.json"
+							],
+							"from": "\"version\": \".*\",",
+							"to": "\"version\": \"${nextRelease.version}\",",
+							"results": [
+								{
+									"file": "package.json",
+									"hasChanged": true,
+									"numMatches": 1,
+									"numReplacements": 1
+								}
+							],
+							"countMatches": true
+						}
           ]
         }
       ],
@@ -60,7 +76,8 @@
         "@semantic-release/git",
         {
           "assets": [
-            "wpdoi.php"
+            "wpdoi.php",
+            "package.json"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
@@ -76,7 +93,7 @@
         {
           "assets": {
             "path": "wpdoi.zip",
-            "name": "wpdoi-${nextRelease.version}"
+            "name": "wpdoi-${nextRelease.version}.zip"
           }
         }
       ]
