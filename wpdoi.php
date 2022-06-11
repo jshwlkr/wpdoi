@@ -120,8 +120,7 @@ function wpdoi_xml_namespaces( $output ) {
 function wpdoi_dublin_core() {
 
 	$ID = get_the_ID();
-	//TODO: filter output
-	$DOI = get_post_meta( $ID, 'wpdoi_doi', true );
+	$DOI = sanitize_text_field( get_post_meta( $ID, 'wpdoi_doi', true ) );
 	//TODO: check meta first
 	//TODO: sprintf?
 	echo '<meta name="dc.identifier" content="doi:' . $DOI . '">';
