@@ -26,7 +26,7 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.4",
     "@wordpress/scripts": "^23.2.0",
-    "semantic-release": "^19.0.2"
+    "semantic-release": "^19.0.3"
   },
   "release": {
     "branches": "main",
