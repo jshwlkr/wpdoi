@@ -106,8 +106,18 @@ add_action('wp','wpdoi_meta');
 
 function wpdoi_xml_namespaces( $output ) {
 
-	//TODO: check output first
-    return $output . ' xmlns:dc="http://purl.org/dc/terms/" xmlns:doi="http://dx.doi.org/" ';
+	$dc = 'xmlns:dc="http://purl.org/dc/terms/"';
+	$doi = 'xmlns:doi="http://dx.doi.org/"';
+
+	if ( stripos( $output, $dc ) === false ) {
+		$output .= ' ' . $dc;
+	}
+
+	if ( stripos( $output, $doi ) === false ) {
+		$output .= ' ' . $doi;
+	}
+
+    return $output;
 
 }
 
