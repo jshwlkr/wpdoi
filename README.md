@@ -14,6 +14,8 @@ A plugin for inserting DOI metadata into a post for automatic discovery of DOI i
 
 This plugin provides a sidebar field which allows you to associate a DOI with a post, a series of meta elements to a post HEAD, and adds a series of XML namespaces to a site. These additions allow for the automatic discovery of DOI information associated with a post.
 
+This plugin supports [Git Updater](https://git-updater.com/).
+
 ### Caveats
 
 - You may only associate one DOI per post.
