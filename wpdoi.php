@@ -3,12 +3,6 @@
 /**
  * WP-DOI
  *
- * @package           WPDOI
- * @version           1.0.0
- * @author            Joshua Walker
- * @copyright         2019 Joshua Walker
- * @license           GPL-3.0-or-later
- *
  * @wordpress-plugin
  * plugin Name:       WP-DOI
  * plugin URI:        https://github.com/jshwlkr/wpdoi
