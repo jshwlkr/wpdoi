@@ -7,7 +7,7 @@
  * plugin Name:       WP-DOI
  * plugin URI:        https://github.com/jshwlkr/wpdoi
  * description:       Add DOI metadata to a WordPress post.
- * version: 1.0.1
+ * version: 1.0.2
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Joshua Walker
