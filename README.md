@@ -25,3 +25,6 @@ This plugin supports [Git Updater](https://git-updater.com/).
 
 This plugin is mostly an experiment, if there is enough of a response I may devote more resources to it.
 However, at this time I offer no support for this plugin.
+
+## Development
+Use conventional commits, work in a branch, don't touch main, contribute via pull request.
