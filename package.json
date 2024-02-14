@@ -1,9 +1,11 @@
 {
   "name": "wpdoi",
-  "description": "",
+  "description": "A plugin for inserting DOI metadata into a post for automatic discovery of DOI information.",
   "version": "1.0.2",
   "scripts": {
+    "update": "wp-scripts packages-update",
     "zip": "wp-scripts plugin-zip"
+    
   },
   "repository": {
     "type": "git",
@@ -21,82 +23,7 @@
   },
   "homepage": "https://github.com/jshwlkr/wpdoi#readme",
   "devDependencies": {
-    "@google/semantic-release-replace-plugin": "^1.1.0",
-    "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.4",
-    "@wordpress/scripts": "^23.2.0",
-    "semantic-release": "^19.0.3"
-  },
-  "release": {
-    "branches": "main",
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@google/semantic-release-replace-plugin",
-        {
-          "replacements": [
-            {
-              "files": [
-                "wpdoi.php"
-              ],
-              "from": "version: .*",
-              "to": "version: ${nextRelease.version}",
-              "results": [
-                {
-                  "file": "wpdoi.php",
-                  "hasChanged": true,
-                  "numMatches": 1,
-                  "numReplacements": 1
-                }
-              ],
-              "countMatches": true
-            },
-						{
-							"files": [
-								"package.json"
-							],
-							"from": "\"version\": \".*\",",
-							"to": "\"version\": \"${nextRelease.version}\",",
-							"results": [
-								{
-									"file": "package.json",
-									"hasChanged": true,
-									"numMatches": 1,
-									"numReplacements": 1
-								}
-							],
-							"countMatches": true
-						}
-          ]
-        }
-      ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "wpdoi.php",
-            "package.json"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]"
-        }
-      ],
-      [
-        "@semantic-release/exec",
-        {
-          "prepareCmd": "wp-scripts plugin-zip"
-        }
-      ],
-      [
-        "@semantic-release/github",
-        {
-          "assets": {
-            "path": "wpdoi.zip",
-            "name": "wpdoi-${nextRelease.version}.zip"
-          }
-        }
-      ]
-    ]
+    "@wordpress/scripts": "^27.2.0"
+
   }
 }
