@@ -5,7 +5,6 @@ Tested up to:		WordPress 6.0
 Requires PHP:		7.0.0  
 License:			GPL-3.0-or-later  
 
-
 A plugin for inserting DOI metadata into a post for automatic discovery of DOI information.
 
 ## Description
