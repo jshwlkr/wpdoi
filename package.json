@@ -3,7 +3,11 @@
   "description": "A plugin for inserting DOI metadata into a post for automatic discovery of DOI information.",
   "version": "1.0.2",
   "scripts": {
-    "update": "wp-scripts packages-update",
+    "check:engines": "wp-scripts check-engines",
+    "check:licenses": "wp-scripts check-licenses",
+    "lint:md": "wp-scripts lint-md-docs",
+    "lint:pkg": "wp-scripts lint-pkg-json",
+    "update:pkg": "wp-scripts packages-update",
     "zip": "wp-scripts plugin-zip"
     
   },

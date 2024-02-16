@@ -1,12 +1,10 @@
 # WP-DOI
 
-Contributors:		Joshua Walker  
-Requires at least:	5.5.0  
-Tested up to:		6.0  
-Stable tag:			1.0.0  
+Requires at least:	WordPress 5.5.0  
+Tested up to:		WordPress 6.0  
 Requires PHP:		7.0.0  
 License:			GPL-3.0-or-later  
-License URI:		https://www.gnu.org/licenses/gpl-3.0.html  
+
 
 A plugin for inserting DOI metadata into a post for automatic discovery of DOI information.
 
@@ -27,4 +25,8 @@ This plugin is mostly an experiment, if there is enough of a response I may devo
 However, at this time I offer no support for this plugin.
 
 ## Development
-Use conventional commits, work in a branch, don't touch main, contribute via pull request.
+
+- Use conventional commits.
+- Work in a branch.
+- Don't touch main.
+- Contribute via pull request.
