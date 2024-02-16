@@ -1,0 +1,25 @@
+{
+    "name": "jshwlkr/wpdoi",
+    "description": "A plugin for inserting DOI metadata into a post for automatic discovery of DOI information.",
+    "authors": [
+        {
+            "name": "Joshua Walker",
+            "email": "email.me@jshwlkr.info"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "lint:cs": "./vendor/bin/phpcs --standard=phpcs.xml.dist"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "3.0",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "sirbrillig/phpcs-variable-analysis": "^2.11",
+        "automattic/vipwpcs": "^3.0"
+    }
+}

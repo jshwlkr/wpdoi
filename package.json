@@ -1,36 +1,37 @@
 {
   "name": "wpdoi",
+  "version": "0.0.0-dev",
   "description": "A plugin for inserting DOI metadata into a post for automatic discovery of DOI information.",
-  "version": "1.0.2",
-  "scripts": {
-    "check:engines": "wp-scripts check-engines",
-    "check:licenses": "wp-scripts check-licenses",
-    "lint:md": "wp-scripts lint-md-docs",
-    "lint:pkg": "wp-scripts lint-pkg-json",
-    "update:pkg": "wp-scripts packages-update",
-    "zip": "wp-scripts plugin-zip",
-    "prepare": "husky"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jshwlkr/wpdoi.git"
-  },
+  "author": "Joshua Walker",
+  "license": "GPL-2.0-or-later",
   "keywords": [
     "wordpress",
     "wordpress-plugin",
     "doi"
   ],
-  "author": "Joshua Walker",
-  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/jshwlkr/wpdoi#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshwlkr/wpdoi.git"
+  },
   "bugs": {
     "url": "https://github.com/jshwlkr/wpdoi/issues"
   },
-  "homepage": "https://github.com/jshwlkr/wpdoi#readme",
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.2",
     "@wordpress/scripts": "^27.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2"
+  },
+  "scripts": {
+    "check:engines": "wp-scripts check-engines",
+    "check:licenses": "wp-scripts check-licenses",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md": "wp-scripts lint-md-docs",
+    "lint:pkg": "wp-scripts lint-pkg-json",
+    "update:pkg": "wp-scripts packages-update",
+    "zip": "wp-scripts plugin-zip",
+    "prepare": "husky"
   }
 }
