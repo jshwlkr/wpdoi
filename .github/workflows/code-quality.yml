@@ -32,9 +32,9 @@ jobs:
       - name: PHP Parallel Lint
         run: vendor/bin/parallel-lint . --exclude vendor --checkstyle | cs2pr
       - name: PHP_CodeSniffer
-        run: phpcs --report=checkstyle -q | cs2pr
+        run: vendor/bin/phpcs --report=checkstyle -q | cs2pr
       - name: PHPStan
-        run: phpstan analyse          
+        run: vendor/bin/phpstan analyse          
   lint-js:
     name: "Lint: JavaScript"
     runs-on: ubuntu-latest
