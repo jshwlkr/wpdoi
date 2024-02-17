@@ -1,0 +1,40 @@
+{
+    "name": "jshwlkr/wpdoi",
+    "description": "A plugin for inserting DOI metadata into a post for automatic discovery of DOI information.",
+    "authors": [
+        {
+            "name": "Joshua Walker",
+            "email": "email.me@jshwlkr.info"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "require": {
+		"php": ">=7.4"
+	},
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "fix:cs": "./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+        "lint:cs": "./vendor/bin/phpcs --standard=phpcs.xml.dist",
+        "lint:error": "./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+        "lint:sa": "./vendor/bin/phpstan analyze --memory-limit 500M"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "3.0",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "sirbrillig/phpcs-variable-analysis": "^2.11",
+        "automattic/vipwpcs": "^3.0",
+        "php-parallel-lint/php-parallel-lint": "^1.3",
+        "php-parallel-lint/php-console-highlighter": "^1.0",
+        "phpstan/phpstan": "^1.10",
+        "szepeviktor/phpstan-wordpress": "^1.3",
+        "phpstan/extension-installer": "^1.3",
+        "swissspidy/phpstan-no-private": "^0.2.0",
+        "phpstan/phpstan-strict-rules": "^1.5",
+        "phpstan/phpstan-deprecation-rules": "^1.1"
+    }
+}

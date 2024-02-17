@@ -1,0 +1,55 @@
+name: Code Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-php:
+    name: "Lint: PHP (${{ matrix.php-versions }})"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-versions: ['7.4', '8.0', '8.2']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          coverage: none
+          tools: composer, cs2pr
+      - name: Install dependencies
+        uses: ramsey/composer-install@v2
+        with:
+          composer-options: '--prefer-dist --no-scripts --optimize-autoloader'        
+      - name: PHP Parallel Lint
+        run: vendor/bin/parallel-lint . --exclude vendor --checkstyle | cs2pr
+      - name: PHP_CodeSniffer
+        run: vendor/bin/phpcs --report=checkstyle -q | cs2pr
+      - name: PHPStan
+        run: vendor/bin/phpstan analyse          
+  lint-js:
+    name: "Lint: JavaScript"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20
+      - name: Install Node.js dependencies
+        run: npm ci
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true

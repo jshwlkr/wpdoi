@@ -1,0 +1,56 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Function wpdoi_assets\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Function wpdoi_dublin_core\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Function wpdoi_enqueue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Function wpdoi_is_admin\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Function wpdoi_meta\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Function wpdoi_xml_namespaces\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Function wpdoi_xml_namespaces\\(\\) has parameter \\$output with no type specified\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Parameter \\#1 \\$object_or_class of function method_exists expects object\\|string, WP_Screen\\|null given\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Parameter \\#1 \\$post_id of function get_post_meta expects int, int\\|false given\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function sanitize_text_field expects string, mixed given\\.$#"
+			count: 1
+			path: wpdoi.php
+
+		-
+			message: "#^Parameter \\#2 \\$object_id of function metadata_exists expects int, int\\|false given\\.$#"
+			count: 1
+			path: wpdoi.php

@@ -1,0 +1,6 @@
+{
+    "*.js": "wp-scripts lint-js",
+    "*.md": "wp-scripts lint-md-docs",
+    "composer.json": "composer validate",
+    "package.json": "wp-scripts lint-pkg-json"
+}
